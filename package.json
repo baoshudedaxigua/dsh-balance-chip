@@ -1,0 +1,65 @@
+{
+  "name": "dsh-balance-chip",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin: show your DeepSeek topped-up balance right after the sidebar nickname (bottom-left account chip).",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "balance",
+    "sidebar",
+    "ui"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baoshudedaxigua/dsh-balance-chip.git"
+  },
+  "homepage": "https://github.com/baoshudedaxigua/dsh-balance-chip#readme",
+  "bugs": {
+    "url": "https://github.com/baoshudedaxigua/dsh-balance-chip/issues"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs",
+    "scripts/install-desktop.ps1"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.5 <0.3.0"
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js && node scripts/check-bundle.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-api-gateway"
+      ]
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.1-rc.5": "compatible"
+      }
+    }
+  }
+}

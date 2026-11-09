@@ -1,0 +1,5 @@
+# Mount this plugin into the host plugin tree. The client half is discovered by
+# dsh-client-modules from the package's dsh.client declaration.
+- insert:
+    - id: balance-chip
+      name: dsh-balance-chip
